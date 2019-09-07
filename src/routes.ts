@@ -5,4 +5,10 @@ export const Routes = [{
     route: "/hello",
     controller: TestController,
     action: "hello"
-}];
+},{
+    method: "get",
+    route: "/links/:id",
+    controller: TestController,
+    action: "links"
+}, 
+];

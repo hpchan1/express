@@ -2,10 +2,21 @@ import * as express from "express";
 import * as bodyParser from  "body-parser";
 import {NextFunction, Request, Response} from "express";
 import { Routes } from "./routes";
-import * as cors from 'cors'
+
 
 export const storage = {
-    users: []
+    urls: [
+        {
+            "id":1,
+            "oriurl":"http://www.google.com.my",
+            "shorturl":"https://bit.ly/1dj3Jfc"
+        },
+        {
+            "id":2,
+            "oriurl":"http://www.facebook.com",
+            "shorturl":"https://bit.ly/IKFRtL"
+        }
+    ]
 }
 
 export const srcPath = __dirname
@@ -15,7 +26,7 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '\\public'));
-app.use(cors())
+
 
 // register routes
 Routes.forEach(route => {
